@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Adam Jude",
+    "prediction": "adamWinner",
+    "last": "jude",
+    "first": "adam",
+    "score": 0,
+    "final": "9-3 (6-3)"
+  },
+  {
+    "name": "Percy Allen",
+    "prediction": "percyWinner",
+    "last": "allen",
+    "first": "percy",
+    "score": 0,
+    "final": "9-3 (6-3)"
+  },
+  {
+    "name": "Larry Stone",
+    "prediction": "larryWinner",
+    "last": "stone",
+    "first": "larry",
+    "score": 0,
+    "final": "11-1 (8-1)"
+  },
+  {
+    "name": "Matt Calkins",
+    "prediction": "mattWinner",
+    "last": "calkins",
+    "first": "matt",
+    "score": 0,
+    "final": "9-3 (6-3)"
+  }
+]

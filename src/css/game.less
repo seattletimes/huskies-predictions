@@ -1,0 +1,160 @@
+.game {
+  .flex(0 0 21%);
+  margin: 10px;
+
+  -webkit-transition: all .1s  ease-out;
+  transition: all .1s ease-out;
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
+
+  background: @df-light-gray;
+
+  &.selected {
+    border: 5px solid @gold;
+    background: white;
+  }
+
+  @media @small-screen {
+    .flex(0 0 30%);
+  }
+  @media @tablet {
+    .flex(0 0 45%);
+    font-size: 12px;
+    font-weight: 100;
+  }
+  @media @mobile {
+    margin: 20px auto;
+  }
+
+
+  .top {
+    background: @df-light-gray;
+    .flex(1 0 0%);
+
+    .day {
+      display: block;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .week {
+      font-family: @cool;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      border-bottom: 3px solid @gold;
+      display: inline-block;
+      @media @tablet {
+        font-size: 25px;
+      }
+    }
+
+    .prediction {
+      .display-flex();
+      .align-items(center);
+      text-align: center;
+      padding: 8px;
+
+      label {
+        .flex(1 1 0px);
+        display: block;
+      }
+
+      @media @mobile {
+        padding-bottom: 20px;
+      }
+
+      input.team-radio {
+        display: none;
+      }
+
+      input.team-radio + label {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 900;
+        position: relative;
+
+        &::before {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        img {
+          cursor: pointer;
+          width: 100%;
+          max-width: 25vw;
+          position: absolute;
+          top: 40%;
+          left: 0;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+
+      }
+
+      div.vs {
+        padding: 8px;
+        .over {
+          font-family: @cool;
+          margin: 2px;
+        }
+      }
+
+      input.team-radio:checked + label {
+        padding: 8px;
+        position: relative;
+
+        &::after {
+          content: "Your pick";
+          position: absolute;
+          font-weight: bold;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          background: fade(black, 90%);
+          color: @df-off-white;
+          padding: 4px 16px;
+          border-radius: 8px;
+        }
+
+        img {
+          cursor: default;
+          margin-top: 10px;
+        }
+      }
+
+      &.selected {
+        display: block;
+
+        input + label {
+          &::before {
+            display: none;
+          }
+
+          img {
+            position: static;
+            -webkit-transform: none;
+            transform: none;
+          }
+        }
+
+        input.unchosen + label {
+          .flex-order(3);
+          padding-bottom: 5px;
+
+          img {
+            display: inline-block;
+            cursor: default;
+            width: 50%;
+            opacity: .3;
+            padding-left: 5px;
+          }
+        }
+      }
+
+
+    }
+  }
+}

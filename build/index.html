@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+  <title>Make your pick: Huskies Season Predictor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='http://fonts.googleapis.com/css?family=Paytone+One|Oswald:700,400,300' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
+<!-- Favicon -->
+<link rel="shortcut icon" href="http://apps-production.s3.amazonaws.com/static/images/favicon.ico" type="image/x-icon">
+
+<!-- BEGIN TWITTER SUMMARY CARD -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Make your pick: Huskies Season Predictor">
+<meta name="twitter:site" content="@seattletimes">
+<meta name="twitter:url" content="http://projects-staging.seattletimes.com/stinky-farming/">
+<meta name="twitter:image" content="http://projects-staging.seattletimes.com/stinky-farming/assets/social.jpg">
+<meta name="twitter:description" content="How do you think the Huskies will do this year?">
+
+<!-- Social sharing meta -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make your pick: Huskies Season Predictor">
+<meta property="og:site_name" content="The Seattle Times">
+<meta property="og:url" content="http://projects-staging.seattletimes.com/stinky-farming/">
+<meta property="og:image" content="http://projects-staging.seattletimes.com/stinky-farming/assets/social.jpg">
+<meta property="og:description" content="How do you think the Huskies will do this year?">
+
+<meta property="fb:app_id" content="225286600856790"/>
+
+<!-- Chartbeat top -->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<!-- start ad set-up -->
+<script>
+window.googletag = {
+  cmd: [],
+  seatimes: {
+    tags: [],
+    unit: "/81279359/seattletimes.com"
+  }
+};
+</script>
+<!-- end ad set-up -->
+
+<!-- typekit fonts -->
+<script>
+(function(d) {
+var config = {
+  kitId: 'rvq5yyp',
+  scriptTimeout: 3000
+},
+h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+})(document);
+</script>
+  <style>[ng-cloak] { display: none; }</style>
+</head>
+<body ng-app="predictions">
+
+  <nav class="main-nav">
+
+  <div class="wrapper">
+
+    <a class="logo" href="//seattletimes.com">
+      <img src="assets/seattletimes.svg">
+    </a>
+
+    <a class="share top" aria-label="Share"></a>
+
+  </div>
+
+</nav>
+  
+<div class="ad" id="">
+  <script>
+(function() {
+  var scripts = document.getElementsByTagName("script");
+  var here = scripts[scripts.length - 1];
+  var div = here.parentElement;
+  var id = div.id;
+  if (!id) {
+    //generate an ID if none exists
+    id = div.id = "dfp-ad-" + scripts.length;
+  }
+  var type = "banner";
+  var tag = window.googletag;
+
+  tag.cmd.push(function() {
+
+    var options = tag.seatimes.presets[type] || tag.seatimes.presets.square;
+    var ad = tag.defineSlot(tag.seatimes.unit, options.sizes, id);
+    if (options.sizeMapping) {
+      var map = tag.sizeMapping();
+      for (var width in options.sizeMapping) {
+        map.addSize([width * 1,1], options.sizeMapping[width]);
+      }
+      var mapping = map.build();
+      ad.defineSizeMapping(mapping);
+    }
+    ad.setTargeting("pos", options.position);
+    ad.addService(tag.pubads());
+    tag.enableServices();
+    tag.display(id);
+
+  });
+
+})();
+  </script>
+</div>
+
+  <div class="container" ng-controller="prediction" ng-cloak>
+
+    <header>
+      <h2 class="title first">Make your pick</h2>
+      <h2 class="title">Huskies Season Predictor</h2>
+    </header>
+
+    <div class="chatter">
+
+      Think you’ve got what it takes to guess the Huskies' 2016 season correctly? Put your football knowledge to the test by picking the winner of each game this season, then see how your preseason picks stack up against your friends and our experts at The Seattle Times.
+
+      <p class="chatter instructions" ng-if="instructions">Click on each logo to pick your winner.</p>
+
+    </div>
+
+
+
+    <div class="results" ng-hide="!huskies">
+
+      <button class="scratch" ng-click="clear()">
+        Start from scratch
+      </button>
+      <hr>
+
+      <p class="congrats">You predicted the Huskies will go <span>{{huskies}} - {{other}}</span> this season.</p >
+
+        <section class="experts">
+
+          <div class="expert" ng-repeat="expert in experts">
+
+            <img class="mug" src="assets/mugs/{{expert.last}}_mug_transparent.png">
+            <p class="final">{{expert.final}}</p>
+            <p class="comparison">
+              You and {{expert.name}} have {{expert.score}} picks in common.
+            </p>
+
+          </div>
+
+        </section>
+        <a class="share-results"></a>
+      </div>
+
+      <div class="buttons">
+
+        <button class="reset" ng-click="clear()">
+          Reset <i class="fa fa-refresh" aria-hidden="true"></i>
+        </button>
+
+        <button class="print"><a href="./assets/huskies2016schedule.pdf" target="_blank">Printable schedule <i class="fa fa-print" aria-hidden="true"></i></a>
+        </button>
+
+      </div>
+
+      <div class="schedule" >
+
+        <div class="game" ng-repeat="game in games" ng-class="game.winner ? 'selected' : ''">
+
+          <div class="top">
+
+            <h2 class="week">Week {{game.id}}</h2>
+            <p class="day">{{game.date}}</p>
+
+            <div class="prediction" ng-class="game.winner ? 'selected' : ''">
+
+              <!--Away Team-->
+              <input
+              class="team-radio {{game.id}}"
+              type="radio"
+              value="{{game.away}}"
+              name="winner{{game.id}}"
+              id="team{{game.id}}{{game.away}}"
+              ng-model="game.winner"
+              ng-disabled="game.winner"
+              ng-class="game.winner === game.away ? 'chosen' : 'unchosen'"
+              >
+
+              <label for="team{{game.id}}{{game.away}}" >
+                <img src="./assets/logos/{{game.away_logo}}.png">
+                <div class="team-name">{{game.away}}</div>
+              </label>
+
+              <div class="vs">
+                vs.
+              </div>
+
+              <!--Home Team-->
+              <input
+                class="team-radio {{game.id}}"
+                type="radio"
+                value="{{game.home}}"
+                name="winner{{game.id}}"
+                id="team{{game.id}}{{game.home}}"
+                ng-model="game.winner"
+                ng-disabled="game.winner"
+                ng-class="game.winner === game.home ? 'chosen' : 'unchosen'"
+              >
+
+              <label for="team{{game.id}}{{game.home}}">
+                <img src="./assets/logos/{{game.home_logo}}.png">
+                <div class="team-name">{{game.home}}</div>
+              </label>
+
+          </div>
+        </div>
+        <div class="expert-box" ng-class="game.winner ? 'selected' : ''">
+
+          <header class="small-title">Expert Picks</header>
+
+          <div class="experts">
+            <div class="expert" ng-repeat="expert in experts">
+              <p class="small-text"> {{expert.last}}</p>
+              <img class="pick" src="assets/logos/{{game[expert.logo]}}.png">
+            </div>
+          </div>
+
+          <div class="watch">
+            <p class="small-text">{{game.location}}</p>
+            <p class="small-text"> {{game.tv}}, {{game.time}}</p>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+  <div class="credit">
+    Production: Nick Eaton and Sean Quinton <br>
+    Development: Elif Koc
+
+  </div>
+
+  <script>
+  window.experts = {expert: [{"name":"Adam Jude","prediction":"adamWinner","last":"jude","first":"adam","score":0,"final":"9-3 (6-3)"},{"name":"Percy Allen","prediction":"percyWinner","last":"allen","first":"percy","score":0,"final":"9-3 (6-3)"},{"name":"Larry Stone","prediction":"larryWinner","last":"stone","first":"larry","score":0,"final":"11-1 (8-1)"},{"name":"Matt Calkins","prediction":"mattWinner","last":"calkins","first":"matt","score":0,"final":"9-3 (6-3)"}]};
+  window.games = {schedule: [{"id":1,"date":"Saturday, Sept. 3","time":"11:00 AM PT","location":"Husky Stadium","tv":"PAC-12 Network","home":"washington","home_logo":"uw_logo","away":"rutgers","away_logo":"rutgers_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":2,"date":"Saturday, Sept. 10","time":"2:00 PM PT","location":"Husky Stadium","tv":"PAC-12 Network","home":"washington","home_logo":"uw_logo","away":"idaho","away_logo":"idaho_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":3,"date":"Saturday, Sept. 17","time":"5:00 PM PT","location":"Husky Stadium","tv":"PAC-12 Network","home":"washington","home_logo":"uw_logo","away":"portland state","away_logo":"psu_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":4,"date":"Saturday, Sept. 24","time":"Time TBD","location":"Arizona Stadium","tv":"TV TBD","home":"arizona","home_logo":"arizona_logo","away":"washington","away_logo":"uw_logo","adamWinner":"washington","percyWinner":"arizona","larryWinner":"washington","mattWinner":"washington"},{"id":5,"date":"Friday, Sept. 30","time":"6:00 PM PT","location":"Husky Stadium","tv":"ESPN","home":"washington","home_logo":"uw_logo","away":"stanford","away_logo":"stanford_logo","adamWinner":"stanford","percyWinner":"washington","larryWinner":"washington","mattWinner":"stanford"},{"id":6,"date":"Saturday, Oct. 8","time":"Time TBD","location":"Autzen Stadium","tv":"TV TBD","home":"oregon","home_logo":"oregon_logo","away":"washington","away_logo":"uw_logo","adamWinner":"washington","percyWinner":"oregon","larryWinner":"washington","mattWinner":"oregon"},{"id":8,"date":"Saturday, Oct. 22","time":"Time TBD","location":"Husky Stadium","tv":"TV TBD","home":"washington","home_logo":"uw_logo","away":"oregon state","away_logo":"osu_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":9,"date":"Saturday, Oct. 29","time":"Time TBD","location":"Rice-Eccles Stadium","tv":"TV TBD","home":"utah","home_logo":"utah_logo","away":"washington","away_logo":"uw_logo","adamWinner":"utah","percyWinner":"utah","larryWinner":"utah","mattWinner":"utah"},{"id":10,"date":"Saturday, Nov. 5","time":"Time TBD","location":"California Memorial Stadium","tv":"TV TBD","home":"california","home_logo":"cal_logo","away":"washington","away_logo":"uw_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":11,"date":"Saturday, Nov. 12","time":"Time TBD","location":"Husky Stadium","tv":"TV TBD","home":"washington","home_logo":"uw_logo","away":"usc","away_logo":"usc_logo","adamWinner":"usc","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":12,"date":"Saturday, Nov. 19","time":"Time TBD","location":"Husky Stadium","tv":"TV TBD","home":"washington","home_logo":"uw_logo","away":"arizona state","away_logo":"asu_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"},{"id":13,"date":"Friday, Nov. 25","time":"12:30 PM PT","location":"Martin Stadium","tv":"FOX or FS1","home":"washington state","home_logo":"wsu_logo","away":"washington","away_logo":"uw_logo","adamWinner":"washington","percyWinner":"washington","larryWinner":"washington","mattWinner":"washington"}]};
+  </script>
+
+  <script src="app.js" async></script>
+  
+  <section class="thin-div">
+  <div class="center">Don't Miss</div>
+</section>
+
+<section class="dont-miss">
+  
+    <div class="story">
+      <div class="padded">
+      <a href="http://seattletimes.upickem.net/upickem/registration/login.asp?contestid=259358">
+        <img src="./assets/else/Quad_1.jpg"></img>
+        </a>
+        <div class="small">Weekly Contest</div>
+      <a href="http://seattletimes.upickem.net/upickem/registration/login.asp?contestid=259358">
+        <div class="head">Pick NFL and college games for your chance to win a tablet and a 65-inch HD TV</div>
+      </a>
+      </div>
+    </div>
+  
+    <div class="story">
+      <div class="padded">
+      <a href="">
+        <img src="./assets/else/Quad_2.jpg"></img>
+        </a>
+        <div class="small">Seahawks Picker</div>
+      <a href="">
+        <div class="head">Enjoy this? Try your hand at predicting the Seahawks' 2016 season</div>
+      </a>
+      </div>
+    </div>
+  
+    <div class="story">
+      <div class="padded">
+      <a href="">
+        <img src="./assets/else/Quad_3.jpg"></img>
+        </a>
+        <div class="small">Cougars Picker</div>
+      <a href="">
+        <div class="head">Or give the Cougars' 2016 season a shot with our WSU predictor</div>
+      </a>
+      </div>
+    </div>
+  
+    <div class="story">
+      <div class="padded">
+      <a href="http://www.seattletimes.com/sports/uw-huskies/">
+        <img src="./assets/else/Quad_4.jpg"></img>
+        </a>
+        <div class="small">Get Yourself Ready</div>
+      <a href="http://www.seattletimes.com/sports/uw-huskies/">
+        <div class="head">Read up on the Huskies and Cougars before the 2016 season begins</div>
+      </a>
+      </div>
+    </div>
+  
+</section>
+
+
+  <footer class="nav-bottom">
+  <a class="logo" href="http://www.seattletimes.com">
+    <img src="./assets/st-logo.png">
+  </a>
+</footer>
+
+</body>
+
+</html>

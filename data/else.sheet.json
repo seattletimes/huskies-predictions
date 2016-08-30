@@ -1,0 +1,28 @@
+[
+  {
+    "order": 1,
+    "category": "Weekly Contest",
+    "title": "Pick NFL and college games for your chance to win a tablet and a 65-inch HD TV",
+    "link": "http://seattletimes.upickem.net/upickem/registration/login.asp?contestid=259358",
+    "image": "Quad_1.jpg"
+  },
+  {
+    "order": 2,
+    "category": "Seahawks Picker",
+    "title": "Enjoy this? Try your hand at predicting the Seahawks' 2016 season",
+    "image": "Quad_2.jpg"
+  },
+  {
+    "order": 3,
+    "category": "Cougars Picker",
+    "title": "Or give the Cougars' 2016 season a shot with our WSU predictor",
+    "image": "Quad_3.jpg"
+  },
+  {
+    "order": 4,
+    "category": "Get Yourself Ready",
+    "title": "Read up on the Huskies and Cougars before the 2016 season begins",
+    "link": "http://www.seattletimes.com/sports/uw-huskies/",
+    "image": "Quad_4.jpg"
+  }
+]
