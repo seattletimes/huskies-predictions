@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": "stinky-farming"
+      "path": "predictor-uw"
     },
     "live": {
       "bucket": "projects.seattletimes.com",
@@ -10,8 +10,8 @@
     }
   },
   "title": "Make your pick: Huskies Season Predictor",
-  "description": "How do you think the Huskies will do this year?",
-  "url": "http://projects-staging.seattletimes.com/stinky-farming/",
+  "description": "How do you think the Huskies will do this year? Make your picks: ",
+  "url": "http://projects-staging.seattletimes.com/predictor-uw/",
   "slug": "",
   "tags": [],
   "image": "assets/social.jpg",
