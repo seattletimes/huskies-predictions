@@ -6,16 +6,16 @@
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": ""
+      "path": "2016/sports/uw-season-predictor"
     }
   },
-  "title": "Make your pick: Huskies Season Predictor",
-  "description": "How do you think the Huskies will do this year? Make your picks: ",
-  "url": "http://projects-staging.seattletimes.com/predictor-uw/",
+  "title": "Make your pick: UW Huskies Season Predictor",
+  "description": "How do you think the Huskies will do this year? Try your hand at picking the games.",
+  "url": "http://projects.seattletimes.com/2016/sports/uw-season-predictor/",
   "slug": "",
   "tags": [],
   "image": "assets/social.jpg",
   "sheets": ["1aTDFnGobvyaxUO-NaOzU6U9tM5ORsAwQRU02KJMS-7E"],
-  "production": false,
-  "embedded": true
+  "production": true,
+  "embedded": false
 }

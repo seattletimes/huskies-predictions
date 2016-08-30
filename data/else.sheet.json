@@ -10,12 +10,14 @@
     "order": 2,
     "category": "Seahawks Picker",
     "title": "Enjoy this? Try your hand at predicting the Seahawks' year",
+    "link": "http://projects.seattletimes.com/2016/sports/seahawks-season-predictor/",
     "image": "Quad_2.jpg"
   },
   {
     "order": 3,
     "category": "Cougars Picker",
     "title": "Or give the Cougs' season a shot with our WSU predictor",
+    "link": "http://projects.seattletimes.com/2016/sports/wsu-season-predictor/",
     "image": "Quad_3.jpg"
   },
   {
