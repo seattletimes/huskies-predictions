@@ -63,7 +63,7 @@ var prediction = function($scope) {
   } else {
     //if there's no hash, check localStorage
     //this is just saved as JSON
-    var fromLocal = localStorage.getItem("hawks-prediction");
+    var fromLocal = localStorage.getItem("huskies-prediction");
     if (fromLocal) {
       fromLocal = JSON.parse(fromLocal);
       restore(fromLocal);
